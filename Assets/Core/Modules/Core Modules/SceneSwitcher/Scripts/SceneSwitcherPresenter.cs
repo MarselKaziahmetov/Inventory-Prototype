@@ -11,7 +11,7 @@ namespace Core.Modules.SceneSwitcher
 
             View.OnFadeIn += View_Faded;
 
-            View.Switch += Zalupa;
+            View.Switch += View_SwitchScene;
         }
 
         public override void Dispose()
@@ -21,7 +21,7 @@ namespace Core.Modules.SceneSwitcher
 
             View.OnFadeIn -= View_Faded;
 
-            View.Switch -= Zalupa;
+            View.Switch -= View_SwitchScene;
         }
 
         private void Model_FadeInRequested()
@@ -39,9 +39,9 @@ namespace Core.Modules.SceneSwitcher
             View.FadeOutView();
         }
 
-        private void Zalupa(string a)
+        private void View_SwitchScene(string sceneName)
         {
-            Model.SwitchSceneTo(a);
+            Model.SwitchSceneTo(sceneName);
         }
     }
 
